@@ -63,39 +63,11 @@ function respond(text) {
   setTimeout(() => printMessage("bot", text), 500);
 }
 
-// NUEVA FUNCIONALIDAD: traducción de frases filosóficas
-
-async function traducir(textoIngles) {
-  //try {
-    const res = await fetch("https://libretranslate.de/translate", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        q: textoIngles,
-        source: "en",
-        target: "es",
-        format: "text"
-      })
-    });
-
-    const data = await res.json();
-    return data.translatedText;
-  /*} catch (e) {
-    return "Las estrellas no me permitieron entender esa sabiduría extranjera...";
-  }*/
-}
-
 async function getAdvice() {
   try {
     const res = await fetch("https://api.adviceslip.com/advice");
     const data = await res.json();
-    const textoOriginal = data.slip.advice;
-
-    const traduccion = await traducir(textoOriginal);
-    respond(`He consultado las estrellas... y ellas dicen: "${traduccion}"`);
-
+    respond(`He consultado las estrellas... y ellas dicen: "${data.slip.advice}"`);
   } catch {
     respond("Los vientos no han traído consejo esta vez...");
   }
