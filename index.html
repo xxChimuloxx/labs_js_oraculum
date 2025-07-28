@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Oraculum - El Oráculo Medieval</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://unpkg.com/compromise"></script>
+</head>
+<body>
+
+  <header>
+    <img src="assets/banner.png" alt="Banner del Oráculo">
+    <!--h1>🔮 Oraculum</h1-->
+    <div id="instrucciones">
+      🧭 <strong>Instrucciones:</strong><br>
+      Preguntá por la hora, el clima, un consejo o saluda al oráculo.
+    </div>
+  </header>
+
+  <main>
+    <div id="chat-box"></div>
+    <div id="input-area">
+      <input type="text" id="user-input" placeholder="Habla, viajero..." />
+      <button onclick="handleInput()">Consultar</button>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
